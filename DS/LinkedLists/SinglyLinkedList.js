@@ -84,6 +84,22 @@ class SinglyLinkedList {
 
     return this;
   }
+
+  get(index) {
+    if (index >= this.length || index < 0) {
+      return undefined;
+    }
+
+    let pos = 0;
+    let curr = this.head;
+
+    while (pos !== index) {
+      curr = curr.next;
+      pos++;
+    }
+
+    return curr;
+  }
 }
 
 const list = new SinglyLinkedList();
@@ -99,4 +115,5 @@ list.shift();
 list.shift();
 list.push('hi');
 list.unshift('there');
-console.log(list);
+const val = list.get(0);
+console.log(val);
