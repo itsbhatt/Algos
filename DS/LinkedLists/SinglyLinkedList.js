@@ -126,6 +126,26 @@ class SinglyLinkedList {
 
     leftSide.next = newNode;
 
+    this.length++;
+
+    return true;
+  }
+
+  delete(index) {
+    if (index >= this.length || index < 0) return false;
+
+    if (index === this.length - 1) return !!this.pop(index);
+
+    if (index === 0) return !!this.shift(index);
+
+    const leftSide = this.get(index - 1);
+
+    const removalNode = leftSide.next;
+
+    leftSide.next = removalNode.next;
+
+    this.length--;
+
     return true;
   }
 }
@@ -145,7 +165,7 @@ list.push('hi');
 list.unshift('there');
 // list.get(0);
 // list.set(1, 'namaste');
-console.log(list);
 list.insert(1, 'hey');
+list.delete(1);
 // list.push('hi');
 console.log(list);
