@@ -100,6 +100,16 @@ class SinglyLinkedList {
 
     return curr;
   }
+  set(index, val) {
+    let curr = this.get(index);
+
+    if (curr) {
+      curr.val = val;
+      return true;
+    }
+
+    return false;
+  }
 }
 
 const list = new SinglyLinkedList();
@@ -116,4 +126,5 @@ list.shift();
 list.push('hi');
 list.unshift('there');
 const val = list.get(0);
-console.log(val);
+list.set(1, 'namaste');
+console.log(list);
